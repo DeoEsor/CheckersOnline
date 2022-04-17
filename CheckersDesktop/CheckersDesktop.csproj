@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Unity" Version="5.11.10" />
+      <PackageReference Include="Unity.Abstractions" Version="5.11.7" />
+      <PackageReference Include="Unity.Container" Version="5.11.11" />
+    </ItemGroup>
+
+</Project>
