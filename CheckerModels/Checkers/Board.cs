@@ -22,7 +22,6 @@ namespace Models.Checkers
 				for (var j = 0; j < _area.GetLength(1); j++)
 					_area[i, j] = new Cell(new Vector2(i,j),
 						GetColor(i,j));
-			
 		}
 
 		public static Color GetColor(int i, int j)

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using Models.Annotations;
 namespace Models.Checkers
 {
-	public class GameHistory : INotifyPropertyChanged
+	public partial class GameHistory : INotifyPropertyChanged
 	{
 		private Guid _id;
 		 
@@ -28,7 +30,7 @@ namespace Models.Checkers
 		private Memento _state;
 
 		public List<Memento> States;
-		
+
 		public void SetMemento(Memento memento)=>State = memento;
 		
 		public Memento Remember(Checker checker, Vector2 step, int round)
