@@ -8,10 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="..\Protos\*.proto" GrpcServices="Server" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
         <PackageReference Include="RabbitMQ.Client" Version="6.2.4" />
         <PackageReference Include="Unity" Version="5.11.10" />
@@ -19,6 +15,11 @@
         <PackageReference Include="Unity.Configuration" Version="5.11.2" />
         <PackageReference Include="Unity.Container" Version="5.11.11" />
         <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="..\Protos\UserDBServiceProto\*" GrpcServices="Server" ProtoRoot="..\Protos\" />
+        <Protobuf Include="..\Protos\UserDBServiceProto\Messages\*" GrpcServices="Server" ProtoRoot="..\Protos\" />
     </ItemGroup>
 
 </Project>
