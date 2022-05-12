@@ -33,3 +33,5 @@
  * Звено 3 - БД ![MySql](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
     * БД для хранения партий
     * БД для хранения данных пользователей
+    
+   ![Architecture](.GitHub/Architecture.PNG)
