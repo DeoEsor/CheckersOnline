@@ -7,4 +7,9 @@
         <RootNamespace>Models</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CheckersAbstractions\CheckersAbstractions.csproj" />
+      <ProjectReference Include="..\CheckersLogic\CheckersLogic.csproj" />
+    </ItemGroup>
+
 </Project>
