@@ -2,6 +2,8 @@
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using CheckersLogic.Enums;
+
 namespace Models.Checkers
 {
 	public partial class Checker : IFormatter, ISerializable, IDeserializationCallback

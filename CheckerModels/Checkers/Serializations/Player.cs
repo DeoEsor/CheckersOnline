@@ -6,7 +6,7 @@ namespace Models.Checkers
 	{
 		internal Player(SerializationInfo info, StreamingContext context)
 		{
-			Id = new Guid(info.GetString("Id")!);
+			Guid = new Guid(info.GetString("Id")!);
 
 			Name = info.GetString("Name")!;
 		}

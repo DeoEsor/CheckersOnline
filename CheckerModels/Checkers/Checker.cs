@@ -2,17 +2,23 @@
 using System.Drawing;
 using System.Numerics;
 using System.Runtime.Serialization;
+using CheckersLogic.Enums;
+using CheckersLogic.Interfaces;
+
 namespace Models.Checkers
 {
-	public sealed partial class Checker :  ICloneable
+	public sealed partial class Checker :  ICloneable, IChecker
 	{
-		public CheckerType Type;
+		public CheckerType Type { get; set; }
 
-		public Player Owner;
+		public IPlayer Owner { get; set; }
 
-		public Vector2 Position;
+		public Vector2 Position { get; set; }
 
-		public Color Color => Owner.Color;
+		public Color Color
+		{
+			get => Owner.Color;
+		}
 
 		public static Checker CreateInstance(Player player, Vector2 pos, CheckerType checkerType = CheckerType.Common)
 		{

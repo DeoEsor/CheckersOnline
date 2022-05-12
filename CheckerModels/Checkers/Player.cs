@@ -3,33 +3,32 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Drawing;
 using System.Runtime.Serialization;
+using CheckersLogic.Interfaces;
+
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ConvertToAutoProperty
 namespace Models.Checkers
 {
-	public partial class Player : ISerializable, IDeserializationCallback
+	public partial class Player : ISerializable, IDeserializationCallback, IPlayer
 	{
-		private Guid _id;
+		public Guid Guid { get;  set; }
+		public Color Color { get; set; }
+		
+		
 		private string _name;
 
-		public Color Color;
-		
-		public ObservableCollection<Checker> Checkers;
+		public ObservableCollection<Checker> Checkers { get; set; } = new ObservableCollection<Checker>();
 
 		public Player()
 		{
-			//Checkers.CollectionChanged += CheckersOnCollectionChanged;
+			Checkers.CollectionChanged += CheckersOnCollectionChanged;
 		}
 		public string Name
 		{
 			get => _name;
 			set => _name = value;
 		}
-		public Guid Id
-		{
-			get => _id;
-			internal init => _id = value;
-		}
+		
 		private void CheckersOnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
 		{
 			switch (e.Action)
