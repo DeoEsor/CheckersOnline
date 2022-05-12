@@ -15,15 +15,10 @@ IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 		.UseUnityServiceProvider()
 		.UseStartup<Startup>();
 
-var container = new UnityContainer();
-//var a = container.Resolve<GameDBServer.Services.>();
-
-// Add services to the container.
 builder.Services.AddGrpc();
 var redisConnection = await ConnectionMultiplexer.ConnectAsync("127.0.0.1:6379");
 var redisDatabase = redisConnection.GetDatabase();
-//var cachedRequestResult = await redisDatabase.StringGetAsync(hashString);
 var app = builder.Build();
 
-//app.MapGrpcService<GreeterService>();
+app.MapGrpcService<GamesHolderService>();
 app.Run();
