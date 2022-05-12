@@ -8,16 +8,35 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="..\Protos\*.proto" GrpcServices="Server" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
         <PackageReference Include="Unity" Version="5.11.10" />
         <PackageReference Include="Unity.Abstractions" Version="5.11.7" />
         <PackageReference Include="Unity.Configuration" Version="5.11.2" />
         <PackageReference Include="Unity.Container" Version="5.11.11" />
         <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="..\Protos\GamesDBServiceProto\**" GrpcServices="Server" ProtoRoot="..\Protos\" />
+        <Protobuf Include="..\Protos\UserDBServiceProto\**" GrpcServices="Server" ProtoRoot="..\Protos\" />
+        <Protobuf Include="..\Protos\GameServiceProto\**" GrpcServices="Server" ProtoRoot="..\Protos\" />
+        <Protobuf Update="..\Protos\UserDBServiceProto\Messages\RememberPasswordMessages.proto">
+          <Access>Public</Access>
+          <ProtoCompile>True</ProtoCompile>
+          <CompileOutputs>True</CompileOutputs>
+          <OutputDir>obj\Debug\net6.0\</OutputDir>
+          <Generator>MSBuild:Compile</Generator>
+          <Link>UserDBServiceProto\Messages\RememberPasswordMessages.proto</Link>
+        </Protobuf>
+        <Protobuf Update="..\Protos\UserDBServiceProto\Messages\PersonalData.proto">
+          <Link>UserDBServiceProto\Messages\PersonalData.proto</Link>
+        </Protobuf>
+        <Protobuf Update="..\Protos\UserDBServiceProto\Messages\BannedData.proto">
+          <Link>UserDBServiceProto\Messages\BannedData.proto</Link>
+        </Protobuf>
+        <Protobuf Update="..\Protos\GamesDBServiceProto\Messages\GameHolderMessages.proto">
+          <Link>GamesDBServiceProto\Messages\GameHolderMessages.proto</Link>
+        </Protobuf>
     </ItemGroup>
 
 </Project>
