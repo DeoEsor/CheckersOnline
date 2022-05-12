@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
+﻿using System.ComponentModel;
 using System.Numerics;
 using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
-using Models.Annotations;
-namespace Models.Checkers
+using CheckersLogic.Interfaces;
+
+namespace CheckersLogic.Base.GameHistory
 {
 	public partial class GameHistory : INotifyPropertyChanged
 	{
@@ -31,17 +28,19 @@ namespace Models.Checkers
 
 		public List<Memento> States;
 
-		public void SetMemento(Memento memento)=>State = memento;
+		public void SetMemento(Memento memento) => State = memento;
 		
-		public Memento Remember(Checker checker, Vector2 step, int round)
+		public Memento Remember(IChecker checker, Vector2 step, int round = -1)
 		{
-			var memento = Checkers.Memento.CreateInstance(checker, step, round);
+			if (round == -1)
+				round = States.Last()?.Round ?? 0;
+			var memento = Memento.CreateInstance(checker, step, round);
 			States.Add(memento);
 			return memento;
 		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;
-		[NotifyPropertyChangedInvocator]
+		
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null!)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
