@@ -35,3 +35,8 @@
     * БД для хранения данных пользователей
     
    ![Architecture](.GitHub/Architecture.PNG)
+
+## Окна
+
+   ![Registration](.GitHub/registrationwindow.PNG)
+   ![Menu](.GitHub/main.PNG)
