@@ -7,7 +7,7 @@ namespace CheckersLogic.Base.GameHistory
 	public class Memento
 	{
 		public Guid Guid;
-		private GameHistory _gameHistory = null!;
+		private CheckersLogic.GameHistory _gameHistory = null!;
 		public IChecker Checker;
 
 		public Vector2 Step;

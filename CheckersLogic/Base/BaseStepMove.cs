@@ -7,9 +7,9 @@ namespace CheckersLogic.Base;
 public abstract class BaseStepCommand : IStepCommand
 {
     protected readonly BaseBoard Board;
-    protected readonly GameHistory.GameHistory History;
+    protected readonly CheckersLogic.GameHistory History;
 
-    protected BaseStepCommand(GameHistory.GameHistory history, BaseBoard board)
+    protected BaseStepCommand(CheckersLogic.GameHistory history, BaseBoard board)
     {
         History = history;
         Board = board;

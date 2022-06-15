@@ -15,7 +15,7 @@ public class BaseSystem : ISystem
     
     public IStepCommand StepQueenCheckersLogic { get; set; }
     
-    public GameHistory.GameHistory History { get; set; }
+    public CheckersLogic.GameHistory History { get; set; }
 
     #endregion
 
@@ -27,14 +27,14 @@ public class BaseSystem : ISystem
         List<IPlayer> players,
         IStepCommand stepCommonCheckersLogic, 
         IStepCommand stepQueenCheckersLogic, 
-        GameHistory.GameHistory history = null!)
+        CheckersLogic.GameHistory history = null!)
     {
         GameStartCommand = gameStartCommand;
         CurrentStepper = currentStepper;
         Players = players;
         StepCommonCheckersLogic = stepCommonCheckersLogic;
         StepQueenCheckersLogic = stepQueenCheckersLogic;
-        History = history ?? new GameHistory.GameHistory();
+        History = history ?? new CheckersLogic.GameHistory();
     }
 
     #endregion

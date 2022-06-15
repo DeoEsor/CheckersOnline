@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization;
-namespace Models.Checkers
+namespace CheckersLogic
 {
 	public partial class GameHistory : IFormatter
 	{

@@ -1,6 +1,8 @@
-﻿namespace CheckersLogic.Interfaces;
+﻿using System.ComponentModel;
 
-public interface ICell
+namespace CheckersLogic.Interfaces;
+
+public interface ICell : INotifyPropertyChanged
 {
-    
+    public event PropertyChangedEventHandler? PropertyChanged;
 }

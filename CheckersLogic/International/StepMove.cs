@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 using CheckersLogic.Base;
-using CheckersLogic.Base.GameHistory;
+using CheckersLogic;
 using CheckersLogic.Interfaces;
 
 namespace CheckersLogic.International;
