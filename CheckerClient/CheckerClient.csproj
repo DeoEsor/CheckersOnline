@@ -17,9 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Protobuf Include="../Protos/GameServiceProto/**/*.proto" GrpcService="Client" ProtoRoot="../Protos/GameServiceProto"/>
-        <Protobuf Include="../Protos/GamesDBServiceProto/**/*.proto" GrpcService="Client" ProtoRoot="../Protos/GamesDBServiceProto"/>
-        <Protobuf Include="../Protos/UserDBServiceProto/**/*.proto" GrpcService="Client" ProtoRoot="../Protos/UserDBServiceProto"/>
+        <Protobuf Include="../Protos/GameServiceProto/**/*.proto" GrpcService="Client" ProtoRoot="../Protos/"/>
+        <Protobuf Include="../Protos/GamesDBServiceProto/**/*.proto" GrpcService="Client" ProtoRoot="../Protos/"/>
+        <Protobuf Include="../Protos/UserDBServiceProto/**/*.proto" GrpcService="Client" ProtoRoot="../Protos/"/>
     </ItemGroup>
 
 </Project>
