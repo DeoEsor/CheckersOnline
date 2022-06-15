@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using Unity;
+﻿using System.Windows;
+using CheckersDesktop.View;
+using DryIoc;
 
 namespace CheckersDesktop
 {
@@ -14,14 +9,16 @@ namespace CheckersDesktop
 	/// </summary>
 	public partial class App : Application
 	{
-		protected override void OnActivated(EventArgs e)
+		public static IContainer Container { get; set; }
+		protected override void OnStartup(StartupEventArgs e)
 		{
 			base.OnActivated(e);
-			IUnityContainer container = new UnityContainer();
+			Container = new Container();
+			Container.Register<MainWindow>();
 			//container.RegisterType<IDataServices, TextDataServices>();
 			//container.RegisterType<ITextViewModel, TextViewModel>();
 
-			var window = container.Resolve<MainWindow>();
+			var window = Container.Resolve<MainWindow>();
 			window.Show();
 		}
 	}

@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:CheckersControls"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             AllowDrop="True">
     <UserControl.Resources>
         <Color x:Key="Default">White</Color>
     </UserControl.Resources>

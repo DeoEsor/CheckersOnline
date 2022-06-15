@@ -8,11 +8,13 @@ option csharp_namespace = "Authenticator";
 package Authenticator;
 
 message PersonalData {
-  uint64 Id = 1; 
-  string Name = 2;
-  google.protobuf.Timestamp RegistrationDate = 3;
-  google.protobuf.Timestamp LastActiveDate = 4;
-  BannedData BannedData = 5;
+  uint64 Id = 1;
+  string Login = 2;
+  string Name = 3;
+  google.protobuf.Timestamp RegistrationDate = 4;
+  google.protobuf.Timestamp LastActiveDate = 5;
+  BannedData BannedData = 6;
+  optional bytes Password = 7;
 }
 
 message PersonalDataRequest {

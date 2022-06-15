@@ -22,7 +22,7 @@ message GameStep {
 }
 
 message Game {
-  uint64 Id = 1;
+  bytes Id = 1;
   uint64 Player1 = 2;
   uint64 Player2 = 3;
   repeated GameStep StepsHistory = 4; 
@@ -43,7 +43,7 @@ message AddGameReply {
 }
 
 message GetGameRequest {
-  uint64 GameID = 1;
+  bytes GameID = 1;
 }
 
 message GetGameReply {

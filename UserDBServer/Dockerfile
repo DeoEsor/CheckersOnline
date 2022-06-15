@@ -3,6 +3,9 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+FROM prom/prometheus  
+ADD Prometheus/prometheus.yml /etc/prometheus/ 
+
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["UserDBServer/UserDBServer.csproj", "UserDBServer/"]
