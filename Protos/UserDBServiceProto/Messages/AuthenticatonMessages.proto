@@ -8,7 +8,7 @@ option csharp_namespace = "Authenticator";
 package Authenticator;
 
 message AuthenticatorReply {
-  bool IsAuthenticated = 1;
+  int32 StatusCode = 1;
   PersonalData PersonalData = 2;
 }
 

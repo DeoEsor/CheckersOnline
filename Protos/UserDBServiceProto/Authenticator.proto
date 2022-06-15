@@ -11,9 +11,7 @@ package Authenticator;
 
 service Authenticator {
   rpc Authenticate (AuthenticatorRequest) returns (AuthenticatorReply);
+  rpc Register (AuthenticatorRequest) returns (AuthenticatorReply);
   rpc GetPersonalData (PersonalDataRequest) returns (PersonalDataReply);
-}
-
-service RememberPassword {
   rpc RememberPassword (RememberPasswordRequest) returns (RememberPasswordReply);
 }
