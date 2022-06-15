@@ -27,7 +27,7 @@ message Game {
   bytes Id = 1;
   uint64 Player1 = 2;
   uint64 Player2 = 3;
-  repeated GameStep StepsHistory = 4;
+  repeated GameStepReply StepsHistory = 4;
 }
 
 message ForfeitRequest {
