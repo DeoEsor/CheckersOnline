@@ -33,7 +33,6 @@ public class Program
                     .UseContentRoot(Directory.GetCurrentDirectory())
                     .UseKestrel()
                     .UseIISIntegration()
-                    .UseStartup<Startup>()
-                    .Build();
+                    .UseStartup<Startup>();
             });
 }

@@ -32,8 +32,8 @@ public class Program
                     .UseConfiguration(config)
                     .UseContentRoot(Directory.GetCurrentDirectory())
                     .UseKestrel()
+                    .UseUrls(config.GetSection("server.urls").Value)
                     .UseIISIntegration()
-                    .UseStartup<Startup>()
-                    .Build();
+                    .UseStartup<Startup>();
             });
 }
