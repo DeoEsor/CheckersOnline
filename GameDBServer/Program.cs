@@ -1,24 +1,39 @@
+using App.Metrics.AspNetCore;
+using App.Metrics.Formatters.Prometheus;
 using GameDBServer;
-using GameDBServer.Services;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using StackExchange.Redis;
-using Unity;
-using Unity.Microsoft.DependencyInjection;
 
-var builder = WebApplication.CreateBuilder(args);
+public class Program 
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
 
-IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-	WebHost.CreateDefaultBuilder(args)
-		.UseUnityServiceProvider()
-		.UseStartup<Startup>();
+    private static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .UseMetricsWebTracking()
+            .UseMetrics(options =>
+            {
+                options.EndpointOptions = endpoints =>
+                {
+                    endpoints.MetricsTextEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter();
+                    endpoints.MetricsEndpointOutputFormatter = new MetricsPrometheusProtobufOutputFormatter();
+                    endpoints.EnvironmentInfoEndpointEnabled = false;
+                };
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                var config = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("hosting.json", optional: true)
+                    .Build();
 
-builder.Services.AddGrpc();
-var redisConnection = await ConnectionMultiplexer.ConnectAsync("127.0.0.1:6379");
-var redisDatabase = redisConnection.GetDatabase();
-var app = builder.Build();
-
-app.MapGrpcService<GamesHolderService>();
-app.Run();
+                webBuilder
+                    .UseConfiguration(config)
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseKestrel()
+                    .UseIISIntegration()
+                    .UseStartup<Startup>()
+                    .Build();
+            });
+}
